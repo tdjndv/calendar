@@ -5,9 +5,16 @@ type CalendarState = {
   currentMonth: string;
 };
 
+function getCurrentMonthString() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  return `${year}-${month}`;
+}
+
 const initialState: CalendarState = {
   selectedDate: null,
-  currentMonth: "2026-04",
+  currentMonth: getCurrentMonthString(),
 };
 
 const calendarSlice = createSlice({
